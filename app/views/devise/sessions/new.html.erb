@@ -1,0 +1,10 @@
+<div class="login-page">
+  <div class="form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "register-form") do |f| %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+      <%= f.submit "Log in" %>
+      <p class="message">Not registered? <%= link_to "Register",new_user_registration_path %></p>
+    <% end %>
+  </div>
+</div>

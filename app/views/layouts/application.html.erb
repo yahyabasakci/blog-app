@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar">
+        <div class="container">
+            <%= link_to "BlogApp", root_path, class: "logo" %>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">New Post</a></li>
+                <%= link_to "My Posts", posts_path, class: "signin-button" %>    
+
+                <% if current_user %>
+                   <%= button_to(
+        "Log Out",
+        destroy_user_session_path,
+        method: :delete,
+        class: "logout-button"
+      ) %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: "signin-button" %>    
+      <% end %>
+            </ul>
+        </div>
+    </nav>
+    
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="leftcolumn">
+    <% @posts.each do |post| %>
+    <div class="card">
+      <h2><%= post.title %></h2>
+      <h5><%= post.created_at.strftime("%F") %></h5>
+      <div class="fakeimg" style="height:200px;">
+        <%= image_tag url_for(post.image), class: "post-image" if post.image.attached? %>
+      </div>
+      <p>
+        <%= post.description %>
+      </p>
+    </div>
+    <% end %>
+    
+  </div>
+
+</div>

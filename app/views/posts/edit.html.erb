@@ -1,0 +1,10 @@
+    <div class="container">
+        <h1>Editing Post</h1>
+
+        <%= render 'form', post: @post %>
+
+        <div class="links" style="margin-top: 20px">
+            <%= link_to 'Show', @post, class: 'btn' %> |
+            <%= link_to 'Back', posts_path, class: 'btn' %>
+        </div>
+    </div>
